@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill Quiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-container">
+    <!-- Home Screen -->
+    <section id="home-screen" class="screen active">
+        <div class="glass-panel">
+            <h1 class="logo">Drill Quiz</h1>
+            <p class="subtitle">Challenge yourself across various domains.</p>
+
+            <div class="setup-form">
+                <div class="form-group">
+                    <label for="category-select">Category</label>
+                    <select id="category-select" class="custom-select">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty-select">Difficulty</label>
+                    <select id="difficulty-select" class="custom-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <button id="start-btn" class="btn primary-btn">Start Quiz</button>
+            </div>
+        </div>
+    </section>
+    <!-- Quiz Screen -->
+    <section id="quiz-screen" class="screen">
+        <div class="glass-panel quiz-panel">
+            <header class="quiz-header">
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <div class="quiz-info">
+                    <span id="question-count">Question 1/10</span>
+                    <div class="timer-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                        </svg>
+                        <span id="timer">15s</span>
+                    </div>
+                </div>
+            </header>
+            <div class="question-container">
+                <h2 id="question-text">Question goes here?</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Options populated by JS -->
+                </div>
+            </div>
+            <footer class="quiz-footer">
+                <button id="next-btn" class="btn secondary-btn" disabled>Next Question</button>
+                <!-- Submit button appears on last question -->
+            </footer>
+        </div>
+    </section>
+    <!-- Results Screen -->
+    <section id="results-screen" class="screen">
+        <div class="glass-panel results-panel">
+            <h2>Quiz Completed!</h2>
+            <div class="score-card">
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                    <span class="total-score">/ 100</span>
+                </div>
+                <p id="performance-msg">Great Job!</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box correct">
+                    <span class="stat-label">Correct</span>
+                    <span id="count-correct" class="stat-value">0</span>
+                </div>
+                <div class="stat-box wrong">
+                    <span class="stat-label">Incorrect</span>
+                    <span id="count-wrong" class="stat-value">0</span>
+                </div>
+                <div class="stat-box time">
+                    <span class="stat-label">Avg Time</span>
+                    <span id="avg-time" class="stat-value">0s</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="timeChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+            <button id="restart-btn" class="btn primary-btn">Play Again</button>
+        </div>
+    </section>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
